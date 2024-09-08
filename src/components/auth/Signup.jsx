@@ -18,7 +18,7 @@ import {
   GoogleAuthProvider,
 } from 'firebase/auth';
 import { auth } from '../../lib/firebase'; // Firebase file in lib folder
-import GoogleIcon from '../../assets/googleIcon.svg'; // Import Google SVG icon
+import GoogleIcon from '../../assets/GoogleIcon.svg'; // Import Google SVG icon
 
 export default function Signup() {
   const [togglePassword, setTogglePassword] = useState(true);
