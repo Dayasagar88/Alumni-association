@@ -1,9 +1,10 @@
-import { CalendarIcon, ClockIcon, GraduationCapIcon } from 'lucide-react'
-import React from 'react'
+import { CalendarIcon, ClockIcon } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card'
 import { Link } from 'react-router-dom'
-import Header from '../Header'
+import Header from '../common/Header'
 import { Button } from '../ui/button'
+import poster from "../../assets/images/events-poster.jpg"
+
 
 const Events = () => {
   return (
@@ -33,7 +34,7 @@ const Events = () => {
                 </div>
               </div>
               <img
-                src="https://circulareconomy.europa.eu/themes/custom/cecon_foundation/images/events.jpg"
+                src={poster}
                 width="550"
                 height="550"
                 alt="Events"
@@ -54,7 +55,7 @@ const Events = () => {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOhDJxqIAosTGOLOY1T14I3ZuCVS-3JJD7Pg&s"
@@ -81,13 +82,13 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRel73WJyZ0GKqE6GjQOmYsoZtnVIjtKOtkkQ&s"
@@ -114,13 +115,13 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNDM8XeXPsCpmUG0J5TDoYXHN9AKcQXzlYiw&s"
@@ -147,7 +148,7 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
@@ -168,7 +169,7 @@ const Events = () => {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://www.adobe.com/content/dam/www/us/en/events/overview-page/eventshub_evergreen_opengraph_1200x630_2x.jpg"
@@ -195,13 +196,13 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-SLQcGOZZYvzBGeI3XLGk0eX8W2D2zoO98Q&s"
@@ -228,13 +229,13 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzGPBoxnTAMZSHnr8rVc6C1XdQ57boULlbrg&s"
@@ -261,7 +262,7 @@ const Events = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
@@ -272,17 +273,7 @@ const Events = () => {
         </section>
       </main>
 
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
+
       
     </div>
   )

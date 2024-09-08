@@ -1,8 +1,10 @@
 
-import { BadgeIcon, BriefcaseIcon, GiftIcon, GraduationCapIcon, VoteIcon } from "lucide-react"
+import { BriefcaseIcon } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { Button } from "../ui/button"
-import Header from "../Header"
+import Header from "../common/Header"
+import poster from "../../assets/images/job-poster.webp";
+import Footer from "../common/Footer";
 
 export default function Jobs() {
   return (
@@ -38,7 +40,7 @@ export default function Jobs() {
                 </div>
               </div>
               <img
-                src="https://moneyinsights.info/wp-content/uploads/2024/08/depositphotos_62060317-stock-illustration-person-with-megaphone-and-word-1.webp"
+                src={poster}
                 width="550"
                 height="550"
                 alt="Hero"
@@ -59,7 +61,7 @@ export default function Jobs() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <BriefcaseIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -83,7 +85,7 @@ export default function Jobs() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <BriefcaseIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -108,7 +110,7 @@ export default function Jobs() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <BriefcaseIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -148,7 +150,7 @@ export default function Jobs() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <BriefcaseIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -168,7 +170,7 @@ export default function Jobs() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <BriefcaseIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -188,7 +190,7 @@ export default function Jobs() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <BriefcaseIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -213,17 +215,7 @@ export default function Jobs() {
         </section>
 
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
+      
       
     </div>
   )

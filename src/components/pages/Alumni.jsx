@@ -1,9 +1,9 @@
-import React from 'react'
-import { BadgeIcon, GiftIcon, GraduationCapIcon, VoteIcon } from "lucide-react"
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
-import { Button } from "../ui/button"
-import Header from "../Header"
+import { Card, CardContent, CardHeader } from "../ui/card"
+import Header from "../common/Header"
 import { Link } from 'react-router-dom'
+import user1_image from "../../assets/images/user1-img.avif";
+import user2_image from "../../assets/images/user2-img.avif";
+import user3_image from "../../assets/images/user3-img.avif";
 
 
 const Alumni = () => {
@@ -26,14 +26,14 @@ const Alumni = () => {
                   <Link
                     href="#"
                     className="inline-flex h-10 items-center justify-center rounded-md bg-[#FF9933] px-8 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Search Alumni
                   </Link>
                   <Link
                     href="#"
                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Connect with Alumni
                   </Link>
@@ -54,11 +54,11 @@ const Alumni = () => {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="flex items-center justify-center h-20 bg-muted rounded-t-lg">
                     <img
-                      src="https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      src={user1_image}
                       alt="Alumni Profile"
                       width={80}
                       height={80}
@@ -77,17 +77,17 @@ const Alumni = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     View Profile
                   </Link>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="flex items-center justify-center h-20 bg-muted rounded-t-lg">
                     <img
-                      src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fHww"
+                      src={user2_image}
                       alt="Alumni Profile"
                       width={80}
                       height={80}
@@ -106,17 +106,17 @@ const Alumni = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     View Profile
                   </Link>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="flex items-center justify-center h-20 bg-muted rounded-t-lg">
                     <img
-                      src="https://plus.unsplash.com/premium_photo-1664541336896-b3d5f7dec9a3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D"
+                      src={user3_image}
                       alt="Alumni Profile"
                       width={80}
                       height={80}
@@ -136,7 +136,7 @@ const Alumni = () => {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     View Profile
                   </Link>
@@ -147,18 +147,7 @@ const Alumni = () => {
         </section>
 
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
-   
+
     </div>
   )
 }

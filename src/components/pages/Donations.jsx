@@ -1,9 +1,10 @@
 
-import { BadgeIcon, BriefcaseIcon, GiftIcon, GraduationCapIcon, VoteIcon } from "lucide-react"
+import { GiftIcon} from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { Button } from "../ui/button"
-import Header from "../Header"
+import Header from "../common/Header"
 import { Link } from "react-router-dom"
+import poster from "../../assets/images/donation-poster.png"
 
 export default function Donations() {
   return (
@@ -25,21 +26,21 @@ export default function Donations() {
                   <Button
                     href="#"
                     className="bg-green-700"
-                    prefetch={false}
+                    
                   >
                     Make a Donation
                   </Button>
                   <Button
                     href="#"
                     className=""
-                    prefetch={false}
+                    
                   >
                     Donation History
                   </Button>
                 </div>
               </div>
               <img
-                src="https://www.lexisnexis.com/community/cfs-file/__key/communityserver-blogs-components-weblogfiles/00-00-00-00-74/NDP_2D00_Alumni_2D00_Fundraising.png"
+                src={poster}
                 width="550"
                 height="550"
                 alt="Hero"
@@ -60,7 +61,7 @@ export default function Donations() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <GiftIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -76,13 +77,13 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Donate Now
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <GiftIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -96,13 +97,13 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Donate Now
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <div className="bg-[#FF9933] p-4 rounded-full">
                     <GiftIcon className="h-8 w-8 text-[#FFFFFF]" />
@@ -116,7 +117,7 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Donate Now
                   </Link>
@@ -137,7 +138,7 @@ export default function Donations() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <GiftIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -152,13 +153,13 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <GiftIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -173,13 +174,13 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <GiftIcon className="h-12 w-12 text-[#FF9933]" />
                 </CardHeader>
@@ -194,7 +195,7 @@ export default function Donations() {
                   <Link
                     href="#"
                     className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                    prefetch={false}
+                    
                   >
                     Learn More
                   </Link>
@@ -204,17 +205,6 @@ export default function Donations() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
       
     </div>
   )

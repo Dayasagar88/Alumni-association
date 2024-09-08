@@ -1,12 +1,12 @@
-import { BriefcaseIcon, CalendarIcon, GiftIcon, GraduationCapIcon, MailOpenIcon, PhoneIcon } from 'lucide-react'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Header from '../Header'
+import { BriefcaseIcon, CalendarIcon, GiftIcon,MailOpenIcon, PhoneIcon } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import Header from '../common/Header'
 import { Card, CardContent, CardHeader } from '../ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Button } from '../ui/button'
 
 const Profile = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col min-h-[100dvh]">
     <Header/>
@@ -21,7 +21,8 @@ const Profile = () => {
                   View and manage your alumni association profile.
                 </p>
               </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
+              <div className="flex flex-col gap-2 lg:justify-start justify-between min-[400px]:flex-row">
+                <div className='flex gap-2'>
                 <Button
                   className="bg-[#FF9933]"
                 >
@@ -31,6 +32,15 @@ const Profile = () => {
                   
                 >
                   Account Settings
+                </Button>
+                </div>
+               
+                <Button
+                onClick={() => navigate("/")}
+                  variant="ghost"
+                  className="bg-red-500 text-white hover:bg-red-600 hover:text-white"
+                >
+                  Logout
                 </Button>
               </div>
             </div>
@@ -102,7 +112,7 @@ const Profile = () => {
                 <Link
                   href="#"
                   className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  prefetch={false}
+                  
                 >
                   View Events
                 </Link>
@@ -122,7 +132,7 @@ const Profile = () => {
                 <Link
                   href="#"
                   className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  prefetch={false}
+                  
                 >
                   View Jobs
                 </Link>
@@ -140,7 +150,7 @@ const Profile = () => {
                 <Link
                   href="#"
                   className="inline-flex h-9 items-center justify-center rounded-md bg-[#FF9933] px-4 py-2 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#FF9933]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  prefetch={false}
+                  
                 >
                   View Donations
                 </Link>
@@ -152,17 +162,7 @@ const Profile = () => {
 
     </main>
 
-    <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
+
     
   </div>
   )

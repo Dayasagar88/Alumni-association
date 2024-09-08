@@ -2,7 +2,8 @@
 import { BadgeIcon, GiftIcon, GraduationCapIcon, VoteIcon } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { Button } from "../ui/button"
-import Header from "../Header"
+import Header from "../common/Header"
+import Footer from "../common/Footer"
 
 export default function Home() {
   return (
@@ -29,7 +30,7 @@ export default function Home() {
                     className="inline-flex h-10 items-center justify-center rounded-md bg-[#138808] px-8 text-sm font-medium text-[#FFFFFF] shadow transition-colors hover:bg-[#138808]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 
                   >
-                    Join Now
+                    Connect
                   </p>
                 </div>
               </div>
@@ -161,7 +162,7 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEFsdW1uaSUyME5ldHdvcmtpbmclMjBFdmVudHxlbnwwfHwwfHx8MA%3D%3D"
@@ -190,7 +191,7 @@ export default function Home() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://plus.unsplash.com/premium_photo-1705407454980-4b8b64d068b8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fENhcmVlciUyMERldmVsb3BtZW50JTIwV29ya3Nob3B8ZW58MHx8MHx8fDA%3D"
@@ -219,7 +220,7 @@ export default function Home() {
                   </p>
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className="flex flex-col justify-between">
                 <CardHeader>
                   <img
                     src="https://images.unsplash.com/photo-1599943821034-8cb5c7526922?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8QWx1bW5pJTIwSG9tZWNvbWluZyUyMENlbGVicmF0aW9ufGVufDB8fDB8fHww"
@@ -314,17 +315,8 @@ export default function Home() {
         </section>
 
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 Alumni Association. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Privacy Policy
-          </p>
-          <p href="#" className="text-xs hover:underline underline-offset-4">
-            Terms of Service
-          </p>
-        </nav>
-      </footer>
+      
+
 
     </div>
   )
