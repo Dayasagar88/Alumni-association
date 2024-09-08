@@ -118,7 +118,7 @@ export default function Login() {
                     </Button>
                   </div>
                   <p className="text-muted-foreground">
-                    Don't have an account?{' '}
+                    {"Don't"} have an account?{' '}
                     <Link to="/signup" className="text-black hover:underline">
                       Sign Up
                     </Link>
