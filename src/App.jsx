@@ -8,7 +8,7 @@ import Profile from "./components/pages/Profile";
 import Alumni from "./components/pages/Alumni";
 import MainLayout from "./components/MainLayout";
 import LandingPage from "./components/landingPages/LandingPage";
-import Signup from "./components/auth/signup";
+import Signup from "./components/auth/Signup";
 import About from "./components/landingPages/About";
 import HomePage from "./components/landingPages/HomePage";
 import Contact from "./components/landingPages/Contact";
