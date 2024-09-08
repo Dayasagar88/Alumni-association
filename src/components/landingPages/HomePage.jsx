@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import poster from "../../assets/images/alumni-association-poster.webp";
-import event_poster from "../../assets/images/event-poster.webp";
+import event_poster from "../../assets/images/Event-poster.webp";
 
 const HomePage = () => {
   const navigate = useNavigate();

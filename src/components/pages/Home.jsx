@@ -1,9 +1,10 @@
 
-import { BadgeIcon, GiftIcon, GraduationCapIcon, VoteIcon } from "lucide-react"
+import { BadgeIcon, GiftIcon, VoteIcon } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
 import { Button } from "../ui/button"
 import Header from "../common/Header"
-import Footer from "../common/Footer"
+import poster from "../../assets/images/alumni-association-poster.webp";
+
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
                 </div>
               </div>
               <img
-                src="https://media.istockphoto.com/id/1066324992/photo/graduation-day.jpg?s=612x612&w=0&k=20&c=cleRpjTZbo430AbH-luZFYMMNqPwhwyTnFgWMbi_AiI="
+                src={poster}
                 width="550"
                 height="550"
                 alt="Hero"

@@ -8,11 +8,12 @@ import Profile from "./components/pages/Profile";
 import Alumni from "./components/pages/Alumni";
 import MainLayout from "./components/MainLayout";
 import LandingPage from "./components/landingPages/LandingPage";
-import Signup from "./components/auth/Signup";
-import About from "./components/landingPages/About";
 import HomePage from "./components/landingPages/HomePage";
-import Contact from "./components/landingPages/Contact";
+import About from "./components/landingPages/About";
 import Login from "./components/auth/Login";
+import Signup from "./components/auth/Signup";
+import Contact from "./components/landingPages/Contact";
+
 
 
 const browserRouter = createBrowserRouter([
@@ -69,10 +70,6 @@ const browserRouter = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-      },
-      {
-        path : "/signup",
-        element : <Signup/>
       }
     ],
   },
