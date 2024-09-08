@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBe3_AY_eSCV7tv5K3Lt_UQ2R3JPKZrzp4',
-  authDomain: 'alumni-association-e1e99.firebaseapp.com',
-  projectId: 'alumni-association-e1e99',
-  storageBucket: 'alumni-association-e1e99.appspot.com',
-  messagingSenderId: '534718429901',
-  appId: '1:534718429901:web:654fd942632d78bd9fc784',
-  measurementId: 'G-BML3ZDFFCC',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
