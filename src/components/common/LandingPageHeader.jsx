@@ -19,9 +19,9 @@ const LandingPageHeader = () => {
   };
 
   return (
-    <header className="px-4 fixed w-full lg:px-6 h-14 flex items-center bg-[#1b1b1b] text-white">
+    <header className="px-4 fixed w-full lg:px-6 h-14 flex items-center bg-green-700 text-black">
       <Link className="flex items-center justify-center">
-        <GraduationCapIcon className="h-6 w-6" />
+        <GraduationCapIcon className="h-10 w-10 text-white" />
         <span className="sr-only">Alumni Association</span>
       </Link>
       <nav className="ml-auto flex gap-4 sm:gap-6">
@@ -30,7 +30,7 @@ const LandingPageHeader = () => {
             key={index}
             onClick={() => handleRoute(text)}
             className={`${
-              nav === text && "text-green-500 font-bold"
+              nav === text && "text-white font-bold"
             } text-sm font-medium hover:underline underline-offset-4`}
           >
             {text}
