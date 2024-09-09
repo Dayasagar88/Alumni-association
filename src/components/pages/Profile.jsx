@@ -28,23 +28,24 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
-  // Fetch the authenticated user's details
+  // Fetch the authenticated user's details from Firebase
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
+        // Fetch user's Firestore profile data
         const userDoc = await getDoc(doc(db, 'users', user.uid));
         if (userDoc.exists()) {
-          setProfileData(userDoc.data());
+          setProfileData(userDoc.data()); // Load Firestore profile data
         }
       } else {
-        navigate('/login');
+        navigate('/login'); // Redirect if not authenticated
       }
     });
     return () => unsubscribe();
   }, [navigate]);
 
-  // Toggle edit mode
+  // Toggle between view and edit mode
   const handleEditToggle = () => {
     setIsEditing(!isEditing);
   };
@@ -54,18 +55,18 @@ const Profile = () => {
     setProfileData({ ...profileData, [e.target.name]: e.target.value });
   };
 
-  // Save the updated profile data
+  // Save updated profile data to Firebase
   const handleSave = async () => {
     try {
-      // Update Firebase Authentication profile
+      // Update Firebase Auth displayName
       await updateProfile(user, {
         displayName: profileData.displayName,
       });
 
-      // Update Firestore with additional fields
+      // Update Firestore with profile data
       await setDoc(doc(db, 'users', user.uid), profileData);
 
-      setIsEditing(false);
+      setIsEditing(false); // Exit edit mode
       alert('Profile updated successfully');
     } catch (error) {
       console.error('Error updating profile:', error.message);
@@ -147,7 +148,7 @@ const Profile = () => {
                           </h3>
                           <p className="text-sm text-muted-foreground">
                             Class of{' '}
-                            {profileData.year || new Date().getFullYear}
+                            {profileData.year || new Date().getFullYear()}
                           </p>
                         </>
                       ) : (

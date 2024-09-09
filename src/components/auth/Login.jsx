@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardFooter } from '../ui/card';
 import { Input } from '../ui/input';
@@ -118,7 +118,7 @@ export default function Login() {
                     </Button>
                   </div>
                   <p className="text-muted-foreground">
-                    Don't have an account?{' '}
+                    Don&apos;t have an account?{' '}
                     <Link to="/signup" className="text-black hover:underline">
                       Sign Up
                     </Link>

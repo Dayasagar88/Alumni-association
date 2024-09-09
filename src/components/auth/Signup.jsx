@@ -17,8 +17,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import { auth } from '../../lib/firebase'; // Firebase file in lib folder
+import { auth, db } from '../../lib/firebase'; // Firebase file in lib folder
 import GoogleIcon from '../../assets/googleIcon.svg'; // Import Google SVG icon
+import { doc, setDoc, collection } from 'firebase/firestore';
 
 export default function Signup() {
   const [togglePassword, setTogglePassword] = useState(true);
@@ -28,6 +29,7 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState(null);
   const [name, setName] = useState('');
+  const [collegeName, setCollegeName] = useState('');
   const [collegeId, setCollegeId] = useState('');
   const [role, setRole] = useState('');
   const navigate = useNavigate();
@@ -39,11 +41,37 @@ export default function Signup() {
       setError('Passwords do not match!');
       return;
     }
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      if (role === 'college') {
+        // Save college data to Firestore
+        await setDoc(doc(db, 'colleges', user.uid), {
+          name: name,
+          email: email,
+          collegeName: collegeName,
+          collegeId: collegeId,
+        });
+      } else {
+        // Save user data to Firestore
+        await setDoc(doc(db, 'users', user.uid), {
+          name: name,
+          email: email,
+          collegeBatchYear: collegeId,
+          role: role,
+        });
+      }
+
       navigate('/home');
     } catch (err) {
       setError(err.message);
+      console.log(err.message);
     }
   };
 
@@ -72,7 +100,78 @@ export default function Signup() {
               </div>
               <Card className="w-full max-w-md py-4">
                 <CardContent className="grid gap-4">
-                  {/* Other form inputs like Name, College ID, Role */}
+                  {/* Role selection */}
+                  <div className="space-y-2">
+                    <Label htmlFor="role">Role</Label>
+                    <Select onValueChange={(value) => setRole(value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select Role" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="student">Student</SelectItem>
+                        <SelectItem value="college">College</SelectItem>
+                        <SelectItem value="alumni">Alumni</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Conditional fields based on role */}
+                  {role === 'college' ? (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="collegeName">College Name</Label>
+                        <Input
+                          id="collegeName"
+                          type="text"
+                          value={collegeName}
+                          onChange={(e) => setCollegeName(e.target.value)}
+                          required
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="collegeId">College ID</Label>
+                        <Input
+                          id="collegeId"
+                          type="text"
+                          value={collegeId}
+                          onChange={(e) => setCollegeId(e.target.value)}
+                          required
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Name</Label>
+                        <Input
+                          id="name"
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          required
+                        />
+                      </div>
+
+                      {/* College Batch Year input - Show only if role is 'student' or 'alumni' */}
+                      {(role === 'student' || role === 'alumni') && (
+                        <div className="space-y-2">
+                          <Label htmlFor="collegeBatchYear">
+                            College Batch Year
+                          </Label>
+                          <Input
+                            id="collegeBatchYear"
+                            type="number"
+                            value={collegeId}
+                            onChange={(e) => setCollegeId(e.target.value)}
+                            required
+                          />
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* Email input */}
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
                     <Input
@@ -83,6 +182,8 @@ export default function Signup() {
                       required
                     />
                   </div>
+
+                  {/* Password input */}
                   <div className="space-y-2 relative">
                     <Label htmlFor="password">Password</Label>
                     <Input
@@ -110,9 +211,41 @@ export default function Signup() {
                       )}
                     </Button>
                   </div>
-                  {error && <p className="text-red-500">{error}</p>}{' '}
-                  {/* Display error */}
+
+                  {/* Confirm password input */}
+                  <div className="space-y-2 relative">
+                    <Label htmlFor="confirmPassword">Confirm Password</Label>
+                    <Input
+                      id="confirmPassword"
+                      type={toggleConfirmPassword ? 'password' : 'text'}
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute bottom-1 right-1 h-7 w-7"
+                    >
+                      {toggleConfirmPassword ? (
+                        <EyeOffIcon
+                          onClick={() =>
+                            setToggleConfirmPassword(!toggleConfirmPassword)
+                          }
+                          className="h-4 w-4"
+                        />
+                      ) : (
+                        <EyeIcon
+                          onClick={() =>
+                            setToggleConfirmPassword(!toggleConfirmPassword)
+                          }
+                          className="h-4 w-4"
+                        />
+                      )}
+                    </Button>
+                  </div>
                 </CardContent>
+
                 <CardFooter className="flex flex-col gap-2 pb-1">
                   <Button
                     onClick={handleSignup}

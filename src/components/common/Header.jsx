@@ -1,9 +1,8 @@
-import { GraduationCapIcon } from "lucide-react";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { GraduationCapIcon } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
-  const navList = ["Home", "Alumni", "Jobs", "Donations", "Events", "Profile"];
+  const navList = ['Home', 'Alumni', 'Jobs', 'Donations', 'Events', 'Profile'];
 
   return (
     <div className="w-full h-14">
@@ -17,8 +16,10 @@ const Header = () => {
             <NavLink
               key={index}
               to={`/${text.toLowerCase()}`}
-              className={({ isActive }) => 
-                isActive ? "text-green-500 text-sm font-medium hover:underline underline-offset-4" : "text-sm font-medium hover:underline underline-offset-4"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-green-500 text-sm font-medium hover:underline underline-offset-4'
+                  : 'text-sm font-medium hover:underline underline-offset-4'
               }
             >
               {text}
