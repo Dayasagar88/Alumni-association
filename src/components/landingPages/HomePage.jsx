@@ -3,14 +3,40 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import poster from "../../assets/images/alumni-association-poster.webp";
 import event_poster from "../../assets/images/Event-poster.webp";
+import { CalendarIcon, ClockIcon } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import connectImg from "../../assets/images/connect.jpg";
+import lectureImg from "../../assets/images/lecture.jpg";
+import weekendImg from "../../assets/images/weekend.jpg";
+import image1 from "../../assets/images/landing-img1.jpg";
+import image2 from "../../assets/images/landing-img2.jpg";
+import image3 from "../../assets/images/landing-img3.jpg";
+import "@/LandingPage.css";
+import { useEffect, useState } from "react";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
+  const images = [
+    { src: image1, text: "Welcome to Our Site" },
+    { src: image2, text: "Discover Our Features" },
+    { src: image3, text: "Join Us Today" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex flex-col min-h-[100dvh] overflow-hidden">
       <main className="flex-1">
-        <section className="w-full h-screen flex items-center justify-center py-12 md:py-24 lg:py-32 bg-[#FF9933]">
+        {/* <section className="w-full h-screen flex items-center justify-center py-12 md:py-24 lg:py-32 bg-[#FF9933]">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="my-auto space-y-2">
@@ -40,17 +66,41 @@ const HomePage = () => {
               />
             </div>
           </div>
+        </section> */}
+
+        <section>
+          <div className="relative h-screen -z-10 w-screen overflow-hidden">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
+                  currentIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ backgroundImage: `url(${image.src})` }}
+              >
+                {/* Optional: Content or styling */}
+              </div>
+            ))}
+
+            <div className="text-white flex flex-col justify-center items-center text-center w-screen h-screen absolute font-bold bg-black bg-opacity-70 p-4 rounded-md">
+              <h1 className="text-5xl">Welcome to the Alumni Association</h1>
+              <p className="text-lg w-[50vw]">
+                Connect with fellow alumni, stay up-to-date on events, and get
+                involved with the community.
+              </p>
+              <button className="bg-orange-500 px-4 py-2 mt-3 rounded-xl text-lg">
+                Get started
+              </button>
+            </div>
+          </div>
         </section>
 
-        <section className="w-full flex justify-center py-12 md:py-24 lg:py-32 ">
+        <section className="w-full flex justify-center py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                  Featured Events
-                </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  Upcoming Alumni Events
+                  Why to join us?
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Join us for our upcoming alumni events and connect with fellow
@@ -58,49 +108,66 @@ const HomePage = () => {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <img
-                src={event_poster}
-                width="550"
-                height="310"
-                alt="Alumni Event"
-                className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-              />
-              <div className="flex flex-col justify-center space-y-4">
-                <ul className="grid gap-6">
-                  <li>
-                    <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">Homecoming Weekend</h3>
-                      <p className="text-muted-foreground">
-                        Join us for a weekend of festivities, including the
-                        annual homecoming game and alumni reunion.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">
-                        Alumni Networking Event
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Connect with fellow alumni and explore new career
-                        opportunities at our networking event.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="grid gap-1">
-                      <h3 className="text-xl font-bold">
-                        Alumni Lecture Series
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Hear from distinguished alumni as they share their
-                        insights and experiences in our lecture series.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
+              <Card className="flex flex-col justify-between">
+                <CardHeader>
+                  <img
+                    src={weekendImg}
+                    width="400"
+                    height="200"
+                    alt="Event Image"
+                    className="rounded-t-lg object-cover"
+                    style={{ aspectRatio: "400/200", objectFit: "cover" }}
+                  />
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <h3 className="text-xl font-bold">Homecoming Weekend</h3>
+                  <p className="text-muted-foreground">
+                    Connect with fellow alumni and explore new career
+                    opportunities at our networking event.
+                  </p>
+                </CardContent>
+                <CardFooter></CardFooter>
+              </Card>
+              <Card className="flex flex-col justify-between">
+                <CardHeader>
+                  <img
+                    src={connectImg}
+                    height="200"
+                    alt="Event Image"
+                    className="rounded-t-lg object-cover"
+                    style={{ aspectRatio: "400/200", objectFit: "cover" }}
+                  />
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <h3 className="text-xl font-bold">Alumni Networking Event</h3>
+                  <p className="text-muted-foreground">
+                    Connect with fellow alumni and explore new career
+                    opportunities at our networking event.
+                  </p>
+                </CardContent>
+                <CardFooter></CardFooter>
+              </Card>
+              <Card className="flex flex-col justify-between">
+                <CardHeader>
+                  <img
+                    src={lectureImg}
+                    width="400"
+                    height="200"
+                    alt="Event Image"
+                    className="rounded-t-lg object-cover"
+                    style={{ aspectRatio: "400/200", objectFit: "cover" }}
+                  />
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <h3 className="text-xl font-bold">Alumni Lecture Series</h3>
+                  <p className="text-muted-foreground">
+                    Hear from distinguished alumni as they share their insights
+                    and experiences in our lecture series.
+                  </p>
+                </CardContent>
+                <CardFooter></CardFooter>
+              </Card>
             </div>
           </div>
         </section>
