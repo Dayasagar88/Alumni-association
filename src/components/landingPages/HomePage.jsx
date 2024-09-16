@@ -36,6 +36,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col min-h-[100dvh] overflow-hidden">
       <main className="flex-1">
+
         {/* <section className="w-full h-screen flex items-center justify-center py-12 md:py-24 lg:py-32 bg-[#FF9933]">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -69,7 +70,7 @@ const HomePage = () => {
         </section> */}
 
         <section>
-          <div className="relative h-screen -z-10 w-screen overflow-hidden">
+          <div className="relative h-screen  w-screen overflow-hidden">
             {images.map((image, index) => (
               <div
                 key={index}
@@ -82,15 +83,15 @@ const HomePage = () => {
               </div>
             ))}
 
-            <div className="text-white flex flex-col justify-center items-center text-center w-screen h-screen absolute font-bold bg-black bg-opacity-70 p-4 rounded-md">
-              <h1 className="text-5xl">Welcome to the Alumni Association</h1>
-              <p className="text-lg w-[50vw]">
+            <div className="text-white flex flex-col justify-center items-center text-center w-screen h-screen absolute bg-black bg-opacity-70 p-4 rounded-md">
+              <h1 className="md:text-5xl text-2xl font-bold">Welcome to the Alumni Association</h1>
+              <p className="md:text-lg md:font-semibold text-sm md:w-[50vw]">
                 Connect with fellow alumni, stay up-to-date on events, and get
                 involved with the community.
               </p>
-              <button className="bg-orange-500 px-4 py-2 mt-3 rounded-xl text-lg">
+              <Button onClick={() => navigate("/signup")} className="bg-orange-500 hover:bg-orange-400 z-50 md:font-bold px-4 py-2 mt-3 rounded-">
                 Get started
-              </button>
+              </Button>
             </div>
           </div>
         </section>

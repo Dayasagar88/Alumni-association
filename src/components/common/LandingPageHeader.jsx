@@ -19,8 +19,8 @@ const LandingPageHeader = () => {
   };
 
   return (
-    <header className="px-4 fixed w-full lg:px-6 h-14 flex items-center bg-green-700 text-black">
-      <Link className="flex items-center justify-center">
+    <header className="px-4 fixed w-full z-10 lg:px-6 h-14 flex items-center bg-green-700 text-black">
+      <Link to="/" className="flex items-center justify-center">
         <GraduationCapIcon className="h-10 w-10 text-white" />
         <span className="sr-only">Alumni Association</span>
       </Link>
